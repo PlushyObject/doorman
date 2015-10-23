@@ -62,7 +62,11 @@ var DoorMan = (function ($) {
     var ageYears = ageDay / 365.25;
 
     if (ageYears > 18) {
-      window.location.href = 'success.html?age='+Math.floor(ageYears);
+      window.location.href = 'success.html?age='+Math.floor(ageYears)+'&verified=true';
+      sessionStorage.age = ageYears;
+    } else{
+      window.location.href = 'failure.html';
+      sessionStorage.age = ageYears;
     }
 
   });
